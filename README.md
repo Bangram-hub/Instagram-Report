@@ -8,7 +8,7 @@
 ---
 
 ## **Bangram showcase 🔥**  
-![Logo](https://x.com/i/status/1883633886787465638)
+![Logo](https://x.com/Bangraam/status/1883633886787465638)
 
 ---
 
