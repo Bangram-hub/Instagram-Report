@@ -7,8 +7,8 @@
 
 ---
 
-## **Bangram Logo**  
-![Logo](https://cdn.discordapp.com/attachments/1329885293024907428/1333179360714424330/logo.png?ex=6797f388&is=6796a208&hm=ec7e9d92d751c7bae7e2f28aa9fa2ae15c2c9281d193d73f41485585481cbf87&)
+## **Bangram showcase 🔥**  
+![Logo](https://x.com/i/status/1883633886787465638)
 
 ---
 
