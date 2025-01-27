@@ -1,4 +1,4 @@
-# 🚀 **Bangram: Mass Report Tool**  
+# 🚀 **Bangram: Mass Report Tool** 
 🌟 *Take Down any Instagram account using Bangram Tool*  
 
 ![📸](https://cdn.discordapp.com/attachments/1329906588991094900/1333178456577413172/image.png?ex=6797f2b1&is=6796a131&hm=5841c92bc043a538588c6cee59ff2d8e42c0806766cba83c2802c3f4a644ca35&)  
