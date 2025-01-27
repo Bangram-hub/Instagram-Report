@@ -5,7 +5,7 @@
 
 **Bangram** This tool helps you delete Instagram accounts using reports 📑. It also provides monthly updates for users and proxies 🔄.
 
----
+----
 
 ## **Bangram showcase 🔥**  
 ![Logo](https://cdn.discordapp.com/attachments/1329885293024907428/1333170334274293771/photo_2025-01-21_06-05-08.jpg?ex=6797eb20&is=679699a0&hm=69067d5f8a13965e77f945f3a3473188edd0aed3301a98f4821365199e2ed21a&)
