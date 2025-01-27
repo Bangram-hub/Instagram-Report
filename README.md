@@ -11,7 +11,7 @@
 Click the link below to view our showcase:  
 [**Bangram Showcase Video**](https://streamable.com/q10h8f)
 
----
+----
 
 ## ⚙️ **How to Use Bangram**  
 Using Bangram is as easy as 1-2-3!  
