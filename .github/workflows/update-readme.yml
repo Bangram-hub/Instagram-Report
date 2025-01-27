@@ -2,9 +2,8 @@ name: Auto-Update README
 
 on:
   schedule:
-    # Runs every 30 minutes
     - cron: '*/30 * * * *'
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch:
 
 jobs:
   update-readme:
@@ -15,17 +14,20 @@ jobs:
 
       - name: Toggle Marker in README
         run: |
-          if grep -q "AUTO-SPACE" README.md; then
-            # Remove the marker if it exists
-            sed -i '/AUTO-SPACE/d' README.md
+          if grep -q "AUTO-SPACE" README.md 2>/dev/null; then
+            sed -i '/AUTO-SPACE/d' README.md || true
           else
-            # Add the marker if it doesn't exist
             echo "AUTO-SPACE" >> README.md
+          fi
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add README.md
-          git commit -m "Auto-update README: Toggled space marker"
-          git push
+          if [ -n "$(git status --porcelain)" ]; then
+            git add README.md
+            git commit -m "Auto-update README: Toggled space marker"
+            git push
+          else
+            echo "No changes to commit"
+          fi
