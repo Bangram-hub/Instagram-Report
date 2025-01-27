@@ -2,8 +2,8 @@ name: Auto-Update README
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
-  workflow_dispatch:
+    - cron: '*/30 * * * *'  # Runs every 30 minutes
+  workflow_dispatch:  # Allows manual trigger of the workflow
 
 jobs:
   update-readme:
@@ -27,7 +27,7 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add README.md
             git commit -m "Auto-update README: Toggled space marker"
-            git push
+            git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
           else
             echo "No changes to commit"
           fi
