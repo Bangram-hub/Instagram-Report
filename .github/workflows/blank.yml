@@ -1,0 +1,33 @@
+name: Auto-Update README
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # Runs every 30 minutes
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Toggle Marker in README
+        run: |
+          if grep -q "AUTO-SPACE" README.md 2>/dev/null; then
+            sed -i '/AUTO-SPACE/d' README.md || true
+          else
+            echo "AUTO-SPACE" >> README.md
+          fi
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add README.md
+            git commit -m "Auto-update README: Toggled space marker"
+            git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
+          else
+            echo "No changes to commit"
+          fi
