@@ -1,4 +1,4 @@
-name: Fake README Update
+name:  README
 on:
   schedule:
     - cron: '0 * * * *' # Runs every hour
@@ -6,13 +6,13 @@ on:
 
 jobs:
   fake-readme-update:
-    name: Fake Update README
+    name:  README
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Make Fake Changes to README
+      - name: README
         run: |
           echo "Making fake changes to README.md..."
           # Add a space to the end of README.md to fake an update
