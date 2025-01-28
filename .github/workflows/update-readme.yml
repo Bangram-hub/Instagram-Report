@@ -3,7 +3,7 @@ name: Auto-Update README
 on:
   schedule:
     - cron: '*/30 * * * *'  # Runs every 30 minutes
-  workflow_dispatch:  # Allows manual trigger of the workflow
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
   update-readme:
