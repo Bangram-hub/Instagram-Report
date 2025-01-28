@@ -1,33 +1,28 @@
-name: Auto-Update README
-
+name: Fake README Update
 on:
   schedule:
-    - cron: '*/30 * * * *'  # Runs every 30 minutes
-  workflow_dispatch:  # Allows manual triggering of the workflow
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch:
 
 jobs:
-  update-readme:
+  fake-readme-update:
+    name: Fake Update README
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-      - name: Toggle Marker in README
+      - name: Make Fake Changes to README
         run: |
-          if grep -q "AUTO-SPACE" README.md 2>/dev/null; then
-            sed -i '/AUTO-SPACE/d' README.md || true
-          else
-            echo "AUTO-SPACE" >> README.md
-          fi
+          echo "Making fake changes to README.md..."
+          # Add a space to the end of README.md to fake an update
+          echo " " >> README.md
+          # Commit the changes
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: fake update to README"
 
-      - name: Commit and Push changes
+      - name: Push Changes
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          if [ -n "$(git status --porcelain)" ]; then
-            git add README.md
-            git commit -m "Auto-update README: Toggled space marker"
-            git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
-          else
-            echo "No changes to commit"
-          fi
+          git push
